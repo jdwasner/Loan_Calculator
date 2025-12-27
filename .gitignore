@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# CSV exports (you may want to keep some of these)
+Export*.csv
+Loan CalculatorExport.csv
+
+# Excel files
+*.xlsx
+
+# Archive folder
+z_archive/
