@@ -23,8 +23,21 @@ This repository contains Python scripts for personal finance loan calculators.
 - **Summary.csv** - Total interest and payments per loan
 - **Weight Iterations.csv** - Results from testing different weighting strategies
 
+### Example: Monthly vs Total Cost.csv
+Compares different monthly payment amounts and their impact on total interest:
+
+| Monthly | Interest Total | Payments Total | Months |
+|---------|----------------|----------------|--------|
+| $1,400  | $11,857        | $79,482        | 57     |
+| $1,600  | $9,497         | $77,122        | 49     |
+| $1,800  | $7,915         | $75,539        | 42     |
+| $2,000  | $6,819         | $74,443        | 38     |
+| $2,200  | $6,011         | $73,636        | 34     |
+
+*Higher monthly payments = less interest paid and faster payoff*
+
 ### Example: Summary.csv
-Shows total interest paid and total payments for each loan:
+Shows total interest paid and total payments for each loan at the user input monthly payment:
 
 | Category | Loan01 | Loan02 | Loan03 | Loan04 | Loan05 | Loan06 | Loan07 | Loan08 | Sum |
 |----------|--------|--------|--------|--------|--------|--------|--------|--------|------|
@@ -39,18 +52,6 @@ First few rows showing monthly payment breakdown:
 | 2024-01-01 | $2,000        | $0             | -               | $23,408          | $0             | -               | ... |
 | 2024-02-01 | $2,000        | $1,145         | $219            | $22,482          | $85            | $24             | ... |
 | 2024-03-01 | $2,000        | $1,145         | $211            | $21,547          | $85            | $24             | ... |
-### Example: Monthly vs Total Cost.csv
-Compares different monthly payment amounts and their impact on total interest:
-
-| Monthly | Interest Total | Payments Total | Months |
-|---------|----------------|----------------|--------|
-| $1,400  | $11,857        | $79,482        | 57     |
-| $1,600  | $9,497         | $77,122        | 49     |
-| $1,800  | $7,915         | $75,539        | 42     |
-| $2,000  | $6,819         | $74,443        | 38     |
-| $2,200  | $6,011         | $73,636        | 34     |
-
-*Higher monthly payments = less interest paid and faster payoff*
 
 ### Example: Weight Iterations.csv
 Tests different prioritization strategies (rate weight vs. total balance weight):
