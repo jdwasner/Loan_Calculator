@@ -150,10 +150,11 @@ def Loan_Table(weight_rate, weight_monthly, weight_total, Total_Payment, Loan_In
     
      
     df_loan_table_final = df_loan_table.copy()
-    df_loan_table_final['Sum Check'] = df_loan_table_final[Payment_Cols].sum(axis=1)  
+    df_loan_table_final['Sum Check'] = df_loan_table_final[list(Payment_Cols)].sum(axis=1)  
  
     #Summarize total payments and interest
-    df_sum = pd.DataFrame({'Sum':df_loan_table_final.sum()})
+    # Fill None/NaN with 0 before summing to ensure all numeric columns are included
+    df_sum = pd.DataFrame({'Sum':df_loan_table_final.infer_objects(copy=False).fillna(0).sum(numeric_only=True)})
     df_sum = df_sum.reset_index(drop=False)
     df_sum = df_sum[df_sum['index']!='Sum Check']
     df_sum = df_sum[df_sum['index']!='Total Payment']
@@ -165,7 +166,8 @@ def Loan_Table(weight_rate, weight_monthly, weight_total, Total_Payment, Loan_In
         df_sum['Loan'] = np.where(df_sum['index'].str.contains(loan), loan, df_sum['Loan'])
         
     df_sum_pivot = df_sum.pivot(index='Category', columns = 'Loan', values = 'Sum')
-    df_sum_pivot = df_sum_pivot.drop(index='Remaining')
+    if 'Remaining' in df_sum_pivot.index:
+        df_sum_pivot = df_sum_pivot.drop(index='Remaining')
     df_sum_pivot['Sum'] = df_sum_pivot.sum(axis=1)
 
     months = len(df_loan_table_final[df_loan_table_final['Sum Check'] != 0])

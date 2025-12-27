@@ -1,2 +1,6 @@
+# These required libraries are already included in the virtual environment
+# Start Virtual Env via ".\.venv\Scripts\Activate.ps1" in terminal
+
 pandas
 matplotlib
+numpy-financial
